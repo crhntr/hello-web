@@ -4,6 +4,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"time"
 )
 
 func main() {
@@ -11,7 +12,7 @@ func main() {
 	stdout := log.New(os.Stdout, "", 0)
 
 	if err := http.ListenAndServe(":"+os.Getenv("PORT"), http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
-		stdout.Printf("%s -> %s: %s", req.Host, req.Method, req.URL)
+		stdout.Printf("%s | %s -> %s: %s", time.Now(), req.Host, req.Method, req.URL)
 		res.Write([]byte("Hello, world!"))
 	})); err != nil {
 		stderr.Println(err)
