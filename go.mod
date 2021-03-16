@@ -1,3 +1,3 @@
-module github.com/crhntr/hello_web
+module github.com/crhntr/hello-web
 
 go 1.13
