@@ -8,13 +8,15 @@ import (
 )
 
 func main() {
-	stderr := log.New(os.Stderr, "", 0)
-	stdout := log.New(os.Stdout, "", 0)
-
-	if err := http.ListenAndServe(":"+os.Getenv("PORT"), http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
-		stdout.Printf("%s | %s -> %s: %s", time.Now(), req.Host, req.Method, req.URL)
-		res.Write([]byte("Hello, world!"))
-	})); err != nil {
-		stderr.Println(err)
+	port := os.Getenv("PORT")
+	log.Println("starting server on port", port)
+	err := http.ListenAndServe(":"+port, http.HandlerFunc(hello))
+	if err != nil {
+		log.Fatal(err)
 	}
+}
+
+func hello(res http.ResponseWriter, req *http.Request) {
+	log.Printf("%s | %s -> %s: %s", time.Now(), req.Host, req.Method, req.URL)
+	_, _ = res.Write([]byte("Hello, world!"))
 }
