@@ -1,3 +1,5 @@
+github.com/crhntr/window v0.0.0-20211011174701-1d3da1531597 h1:o6V2d7w1xTU+HBoTy5M703YWEjExoaNfbcTwU3I3/QQ=
+github.com/crhntr/window v0.0.0-20211011174701-1d3da1531597/go.mod h1:NxMT6kHuCQpdHS2yS/yAF+RBUJxoxNMFktr+bAkqdfo=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/lestrrat-go/bufferpool v0.0.0-20210118235918-2deb6a84c94c h1:Txi8K4WxH1BefzJqBrWIRH0JiiZlR4lUUsP+SPOqRXc=
 github.com/lestrrat-go/bufferpool v0.0.0-20210118235918-2deb6a84c94c/go.mod h1:KwmXn5FpkX4is3nM+CKsCnFSqdY7ujdNpE2L/KztlDM=

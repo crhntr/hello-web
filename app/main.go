@@ -2,9 +2,9 @@
 
 package main
 
-import "syscall/js"
+import "github.com/crhntr/window"
 
 func main() {
 	println("Hello, world!")
-	js.Global().Get("document").Call("querySelector", "body").Set("innerHTML", "Hello, world!")
+	window.Document.Body().SetInnerHTML( /* html */ "<h1>Hello, world!</h1>")
 }
