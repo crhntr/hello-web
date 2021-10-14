@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello, world!</title>
+    <script src="/assets/index.gohtml" type="text/plain"></script>
+    <script src="/assets/wasm_exec.js"></script>
+    <script>
+        function runGo(source) {
+            if (!WebAssembly.instantiateStreaming) { // polyfill
+                WebAssembly.instantiateStreaming = async (resp, importObject) => {
+                    const source = await (await resp).arrayBuffer();
+                    return await WebAssembly.instantiate(source, importObject);
+                };
+            }
+            const go = new Go();
+            WebAssembly.instantiateStreaming(fetch(source), go.importObject).then((result) => {
+                go.run(result.instance);
+            });
+        }
+        runGo('/assets/app.wasm')
+    </script>
+</head>
+<body>
+
+</body>
+</html>

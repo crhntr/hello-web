@@ -1,0 +1,2 @@
+*.wasm
+assets/wasm_exec.js
