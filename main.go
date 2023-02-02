@@ -7,7 +7,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"strings"
 	"sync"
 	"text/template"
 
@@ -26,7 +25,7 @@ func main() {
 	bp := NewBufferPool()
 
 	mux := http.NewServeMux()
-	mux.Handle("/assets/", wasmCT(http.FileServer(http.FS(assets))))
+	mux.Handle("/assets/", http.FileServer(http.FS(assets)))
 	mux.Handle("/", indexHandler(bp))
 
 	err := http.ListenAndServe(":"+port, httplog.Wrap(mux))
@@ -55,15 +54,6 @@ func indexHandler(bp *BufferPool) http.HandlerFunc {
 		}
 		res.WriteHeader(http.StatusOK)
 		_, _ = io.Copy(res, buf)
-	}
-}
-
-func wasmCT(handler http.Handler) http.HandlerFunc {
-	return func(res http.ResponseWriter, req *http.Request) {
-		if strings.HasSuffix(req.URL.Path, ".wasm") {
-			res.Header().Set("content-type", "application/wasm")
-		}
-		handler.ServeHTTP(res, req)
 	}
 }
 
