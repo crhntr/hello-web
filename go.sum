@@ -1,2 +1,6 @@
+github.com/crhntr/httplog v1.0.0 h1:CtnQoqe8RKPR1My8bXRJ2tWcJVBa1QfesFeNoI8hfa8=
+github.com/crhntr/httplog v1.0.0/go.mod h1:nVjp8iphIwbLetOZPkHGgSUqNsbz1ZvU68JZXBzJfjU=
 github.com/crhntr/window v0.0.0-20211011174701-1d3da1531597 h1:o6V2d7w1xTU+HBoTy5M703YWEjExoaNfbcTwU3I3/QQ=
 github.com/crhntr/window v0.0.0-20211011174701-1d3da1531597/go.mod h1:NxMT6kHuCQpdHS2yS/yAF+RBUJxoxNMFktr+bAkqdfo=
+github.com/crhntr/window v0.0.0-20230202034037-4c4a6b780d18 h1:eXn1XijpcuFOeaCgWcMP11XUpjLiMr86gQU+2G64o4Y=
+github.com/crhntr/window v0.0.0-20230202034037-4c4a6b780d18/go.mod h1:45AqfrI3esAT56PbkiC6ZIRhzDQ0YzLCCJHNnG6K3nw=

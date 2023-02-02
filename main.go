@@ -10,6 +10,8 @@ import (
 	"strings"
 	"sync"
 	"text/template"
+
+	"github.com/crhntr/httplog"
 )
 
 //go:embed assets
@@ -27,7 +29,7 @@ func main() {
 	mux.Handle("/assets/", wasmCT(http.FileServer(http.FS(assets))))
 	mux.Handle("/", indexHandler(bp))
 
-	err := http.ListenAndServe(":"+port, mux)
+	err := http.ListenAndServe(":"+port, httplog.Wrap(mux))
 	if err != nil {
 		log.Fatal(err)
 	}
